@@ -38,6 +38,10 @@ await Product.find({
 user:req.user.id
 });
 
+res.render("dashboard",{
+products
+});
+
 res.status(200).json({
 success:true,
 products

@@ -20,6 +20,16 @@ authMiddleware,
 addProduct
 );
 
+router.get("/dashboard",
+authMiddleware,
+getProducts);
+
+router.get("/add-product",
+authMiddleware,
+(req,res)=>{
+    res.render("addProduct");
+});
+
 router.get(
 "/products",
 authMiddleware,

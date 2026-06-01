@@ -1,0 +1,16 @@
+body{
+background:#f5f6fa;
+}
+
+.card{
+border:none;
+border-radius:15px;
+}
+
+.navbar{
+padding:15px;
+}
+
+footer{
+margin-top:100px;
+}
