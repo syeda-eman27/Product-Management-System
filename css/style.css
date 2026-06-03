@@ -1,16 +1,165 @@
-body{
-background:#f5f6fa;
+:root {
+  --bg-0: #0b1220;
+  --bg-1: #0f1b33;
+  --card: rgba(255, 255, 255, 0.08);
+  --card-2: rgba(255, 255, 255, 0.12);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.7);
+  --primary: #6d5efc;
+  --primary-2: #22c55e;
+  --border: rgba(255, 255, 255, 0.15);
 }
 
-.card{
-border:none;
-border-radius:15px;
+* {
+  box-sizing: border-box;
 }
 
-.navbar{
-padding:15px;
+body {
+  background: radial-gradient(1200px 600px at 15% 10%, rgba(109, 94, 252, 0.25), transparent 55%),
+    radial-gradient(900px 500px at 80% 20%, rgba(34, 197, 94, 0.18), transparent 50%),
+    linear-gradient(180deg, var(--bg-0), var(--bg-1));
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 }
 
-footer{
-margin-top:100px;
+a {
+  color: inherit;
 }
+
+a:hover {
+  color: #ffffff;
+}
+
+/* Navbar */
+.navbar {
+  padding: 14px 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.navbar .navbar-brand {
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.navbar .nav-link {
+  opacity: 0.9;
+  font-weight: 600;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  transition: background 160ms ease, opacity 160ms ease;
+}
+
+.navbar .nav-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  opacity: 1;
+}
+
+/* Cards / Panels */
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+  color: var(--text);
+}
+
+.card.shadow-sm {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+}
+
+
+/* Buttons */
+.btn-primary,
+.btn-success,
+.btn-outline-success,
+.btn-outline-primary {
+  border-radius: 12px;
+  border: 0;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), #3b82f6);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--primary-2), #06b6d4);
+}
+
+.btn-success:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.btn {
+  transition: transform 140ms ease, filter 140ms ease;
+}
+
+/* Table */
+.table {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.table thead th {
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Forms */
+.form-control {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  color: var(--text);
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.form-control:focus {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  border-color: rgba(109, 94, 252, 0.7);
+  box-shadow: 0 0 0 0.25rem rgba(109, 94, 252, 0.25);
+}
+
+/* Page padding helpers */
+.py-4 {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+/* Footer */
+footer {
+  margin-top: 60px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+footer .text-muted {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Make bootstrap alerts match theme when present */
+.alert {
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text);
+}
+
+

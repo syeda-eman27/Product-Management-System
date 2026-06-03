@@ -1,4 +1,4 @@
-const Product = require("../models/Product");
+const Product = require("../Models/Product");
 
 exports.addProduct = async(req,res)=>{
 
@@ -16,10 +16,9 @@ user:req.user.id
 
 });
 
-res.status(201).json({
-success:true,
-product
-});
+res.redirect("/dashboard");
+
+// note: form POST should redirect instead of returning JSON to the browser
 
 }catch(error){
 
@@ -30,22 +29,13 @@ message:error.message
 };
 
 exports.getProducts = async(req,res)=>{
-
 try{
 
-const products =
-await Product.find({
+const products = await Product.find({
 user:req.user.id
 });
 
-res.render("dashboard",{
-products
-});
-
-res.status(200).json({
-success:true,
-products
-});
+res.render("ProDashboard",{ products });
 
 }catch(error){
 

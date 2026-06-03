@@ -1,69 +1,60 @@
 <%- include('partials/navbar') %>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Product Management System</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<link rel="stylesheet" href="/css/style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - Product Management System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/css/style.css">
 </head>
-
 <body>
 
-<h2 class="mb-4">
-Dashboard
-</h2>
+<div class="container py-4">
+  <div class="d-flex align-items-center justify-content-between mb-3 gap-3 flex-wrap">
+    <div>
+      <h2 class="m-0 fw-bold"><i class="fa-solid fa-gauge me-2"></i>Dashboard</h2>
+      <p class="mb-0 text-muted">Manage your product list quickly</p>
+    </div>
+    <a href="/add-product" class="btn btn-primary px-4 py-2"><i class="fa-solid fa-circle-plus me-2"></i>Add Product</a>
+  </div>
 
-<a
-href="/add-product"
-class="btn btn-primary mb-3">
 
-Add Product
+  <div class="card shadow-sm overflow-hidden">
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead>
+            <tr>
+              <th class="ps-4">Name</th>
+              <th>Price</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (products && products.length) { %>
+              <% products.forEach(product=>{ %>
+                <tr>
+                  <td class="ps-4 fw-semibold"><%= product.name %></td>
+                  <td><%= product.price %></td>
+                  <td><span class="badge bg-opacity-25 text-bg-primary border border-primary-subtle px-3 py-2"><%= product.category %></span></td>
+                </tr>
+              <% }) %>
+            <% } else { %>
+              <tr>
+                <td colspan="3" class="text-center text-muted py-5">No products yet.</td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
-</a>
-
-<table class="table table-bordered">
-
-<thead>
-
-<tr>
-
-<th>Name</th>
-<th>Price</th>
-<th>Category</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<% products.forEach(product=>{ %>
-
-<tr>
-
-<td><%= product.name %></td>
-
-<td><%= product.price %></td>
-
-<td><%= product.category %></td>
-
-</tr>
-
-<% }) %>
-
-</tbody>
-
-</table>
+</div>
 
 <%- include('partials/footer') %>
 </body>
 </html>
+

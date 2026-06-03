@@ -31,10 +31,11 @@ const user = await User.create({
     password:hashedPassword
 });
 
-res.status(201).json({
-    success:true,
-    user
-});
+// res.status(201).json({
+//     success:true,
+//     user
+// });
+res.redirect("/login");
 
 }catch(error){
 
@@ -82,14 +83,16 @@ expiresIn:"1d"
 }
 );
 
-res.cookie("token",token,{
+res.cookie("token", token, {
 httpOnly:true
 });
 
-res.status(200).json({
-success:true,
-token
-});
+res.redirect("/dashboard");
+
+// res.status(200).json({
+// success:true,
+// token
+// });
 
 }catch(error){
 
